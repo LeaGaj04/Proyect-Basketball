@@ -102,5 +102,21 @@ INSERT INTO jugadores (id, nombre, pin) VALUES
   (uuid_generate_v4(), 'Maximiliano Gonzalez',  '1234'),
   (uuid_generate_v4(), 'Jorge Uribe',           '1234'),
   (uuid_generate_v4(), 'Maxi Palma',            '1234'),
-  (uuid_generate_v4(), 'Ignacio Gonzales',      '1234')
+  (uuid_generate_v4(), 'Ignacio Gonzales',      '1234'),
+  (uuid_generate_v4(), 'Jose Pulgar',           '1234'),
+  (uuid_generate_v4(), 'Leonel Torrejon',       '1234'),
+  (uuid_generate_v4(), 'Gabriel Torrejon',      '1234'),
+  (uuid_generate_v4(), 'Felipe',                '1234'),
+  (uuid_generate_v4(), 'Alejandro Sandoval',    '1234'),
+  (uuid_generate_v4(), 'Christopher Moreno',    '1234'),
+  (uuid_generate_v4(), 'Cristian Neira',        '1234'),
+  (uuid_generate_v4(), 'Daniel Rios',           '1234'),
+  (uuid_generate_v4(), 'Ernesto',               '1234'),
+  (uuid_generate_v4(), 'Eliezer',               '1234'),
+  (uuid_generate_v4(), 'James zamorano',        '1234'),
+  (uuid_generate_v4(), 'Cristobal Martines',    '1234'),
+  (uuid_generate_v4(), 'Renato Bustamante',     '1234'),
+  (uuid_generate_v4(), 'Benjamin Rios',         '1234'),
+  (uuid_generate_v4(), 'Edizon Zuñiga',         '1234'),
+  (uuid_generate_v4(), 'Alfredo',               '1234')
 ON CONFLICT DO NOTHING;
