@@ -6,7 +6,7 @@ import { isAdminAuthenticated, clearAdminSession } from '@/lib/auth'
 import PlayerSidebar from '@/components/PlayerSidebar'
 import RadarChartComponent from '@/components/RadarChartComponent'
 import StatsCard from '@/components/StatsCard'
-import { PromedioJugador, MetricKey, METRIC_LABELS } from '@/lib/types'
+import { PromedioJugador, MetricKey, METRIC_LABELS, METRIC_ICONS } from '@/lib/types'
 
 const ADMIN_PASSWORD_KEY = 'ADMIN_PASSWORD'
 
