@@ -76,9 +76,7 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-black bg-grid flex flex-col items-center justify-center p-4 relative overflow-hidden">
-      {/* Ambient glow blobs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
+      {/* Ambient glow blobs removed */}
 
       <div className="w-full max-w-md relative z-10">
         {/* Logo / Brand */}
