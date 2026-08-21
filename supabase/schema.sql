@@ -86,19 +86,21 @@ CREATE POLICY "evaluaciones_insert"
 -- ============================================================
 -- Nota: En producción, usar passwords hasheadas con bcrypt
 INSERT INTO jugadores (id, nombre, pin) VALUES
-  (uuid_generate_v4(), 'Alejandro García',   '1234'),
-  (uuid_generate_v4(), 'Bruno Martínez',     '1234'),
-  (uuid_generate_v4(), 'Carlos López',       '1234'),
-  (uuid_generate_v4(), 'Diego Hernández',    '1234'),
-  (uuid_generate_v4(), 'Emilio Torres',      '1234'),
-  (uuid_generate_v4(), 'Felipe Ramírez',     '1234'),
-  (uuid_generate_v4(), 'Gonzalo Sánchez',    '1234'),
-  (uuid_generate_v4(), 'Hugo Flores',        '1234'),
-  (uuid_generate_v4(), 'Ignacio Díaz',       '1234'),
-  (uuid_generate_v4(), 'Javier Morales',     '1234'),
-  (uuid_generate_v4(), 'Kevin Jiménez',      '1234'),
-  (uuid_generate_v4(), 'Luis Reyes',         '1234'),
-  (uuid_generate_v4(), 'Mateo Vargas',       '1234'),
-  (uuid_generate_v4(), 'Nicolás Castro',     '1234'),
-  (uuid_generate_v4(), 'Oscar Medina',       '1234')
+  (uuid_generate_v4(), 'Leandro Gajardo',       '1234'),
+  (uuid_generate_v4(), 'Enzo Oyarzun',          '1234'),
+  (uuid_generate_v4(), 'Matias Oyarzun',        '1234'),
+  (uuid_generate_v4(), 'Gonzalo Dauvergne',     '1234'),
+  (uuid_generate_v4(), 'Joaquin Rivera',        '1234'),
+  (uuid_generate_v4(), 'Mario Munster',         '1234'),
+  (uuid_generate_v4(), 'Pedro Hernandez',       '1234'),
+  (uuid_generate_v4(), 'Martin Rios',           '1234'),
+  (uuid_generate_v4(), 'Maximiliano Ramirez',   '1234'),
+  (uuid_generate_v4(), 'Williams Fernandez',    '1234'),
+  (uuid_generate_v4(), 'Esteban patiño',        '1234'),
+  (uuid_generate_v4(), 'Franco Carrasco',       '1234'),
+  (uuid_generate_v4(), 'Martin Tejeda',         '1234'),
+  (uuid_generate_v4(), 'Maximiliano Gonzalez',  '1234'),
+  (uuid_generate_v4(), 'Jorge Uribe',           '1234'),
+  (uuid_generate_v4(), 'Maxi Palma',            '1234'),
+  (uuid_generate_v4(), 'Ignacio Gonzales',      '1234')
 ON CONFLICT DO NOTHING;
