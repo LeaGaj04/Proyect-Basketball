@@ -118,5 +118,6 @@ INSERT INTO jugadores (id, nombre, pin) VALUES
   (uuid_generate_v4(), 'Renato Bustamante',     '1234'),
   (uuid_generate_v4(), 'Benjamin Rios',         '1234'),
   (uuid_generate_v4(), 'Edizon Zuñiga',         '1234'),
-  (uuid_generate_v4(), 'Alfredo',               '1234')
+  (uuid_generate_v4(), 'Alfredo',               '1234'),
+  (uuid_generate_v4(), 'Biron Vera',            '1234')
 ON CONFLICT DO NOTHING;
