@@ -12,7 +12,8 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE IF NOT EXISTS jugadores (
   id   UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   nombre TEXT NOT NULL,
-  pin  TEXT NOT NULL  -- PIN de 4 dígitos hasheado (almacenado como texto simple para demo)
+  pin  TEXT NOT NULL,  -- PIN de 4 dígitos hasheado (almacenado como texto simple para demo)
+  categoria TEXT NOT NULL
 );
 
 -- ============================================================
@@ -82,42 +83,59 @@ CREATE POLICY "evaluaciones_insert"
   WITH CHECK (true);  -- Controlado en API Routes server-side
 
 -- ============================================================
--- 6. SEEDS — 15 JUGADORES (PIN por defecto: 1234)
+-- 6. SEEDS — JUGADORES (PIN por defecto: 1234)
 -- ============================================================
 -- Nota: En producción, usar passwords hasheadas con bcrypt
-INSERT INTO jugadores (id, nombre, pin) VALUES
-  (uuid_generate_v4(), 'Leandro Gajardo',       '1234'),
-  (uuid_generate_v4(), 'Enzo Oyarzun',          '1234'),
-  (uuid_generate_v4(), 'Matias Oyarzun',        '1234'),
-  (uuid_generate_v4(), 'Gonzalo Dauvergne',     '1234'),
-  (uuid_generate_v4(), 'Joaquin Rivera',        '1234'),
-  (uuid_generate_v4(), 'Mario Munster',         '1234'),
-  (uuid_generate_v4(), 'Pedro Hernandez',       '1234'),
-  (uuid_generate_v4(), 'Martin Rios',           '1234'),
-  (uuid_generate_v4(), 'Maximiliano Ramirez',   '1234'),
-  (uuid_generate_v4(), 'Williams Fernandez',    '1234'),
-  (uuid_generate_v4(), 'Esteban patiño',        '1234'),
-  (uuid_generate_v4(), 'Franco Carrasco',       '1234'),
-  (uuid_generate_v4(), 'Martin Tejeda',         '1234'),
-  (uuid_generate_v4(), 'Maximiliano Gonzalez',  '1234'),
-  (uuid_generate_v4(), 'Jorge Uribe',           '1234'),
-  (uuid_generate_v4(), 'Maxi Palma',            '1234'),
-  (uuid_generate_v4(), 'Ignacio Gonzales',      '1234'),
-  (uuid_generate_v4(), 'Jose Pulgar',           '1234'),
-  (uuid_generate_v4(), 'Leonel Torrejon',       '1234'),
-  (uuid_generate_v4(), 'Gabriel Torrejon',      '1234'),
-  (uuid_generate_v4(), 'Felipe',                '1234'),
-  (uuid_generate_v4(), 'Alejandro Sandoval',    '1234'),
-  (uuid_generate_v4(), 'Christopher Moreno',    '1234'),
-  (uuid_generate_v4(), 'Cristian Neira',        '1234'),
-  (uuid_generate_v4(), 'Daniel Rios',           '1234'),
-  (uuid_generate_v4(), 'Ernesto',               '1234'),
-  (uuid_generate_v4(), 'Eliezer',               '1234'),
-  (uuid_generate_v4(), 'James zamorano',        '1234'),
-  (uuid_generate_v4(), 'Cristobal Martines',    '1234'),
-  (uuid_generate_v4(), 'Renato Bustamante',     '1234'),
-  (uuid_generate_v4(), 'Benjamin Rios',         '1234'),
-  (uuid_generate_v4(), 'Edizon Zuñiga',         '1234'),
-  (uuid_generate_v4(), 'Alfredo',               '1234'),
-  (uuid_generate_v4(), 'Biron Vera',            '1234')
+INSERT INTO jugadores (id, nombre, pin, categoria) VALUES
+  -- Adulta Masculina
+  (uuid_generate_v4(), 'Jorge Uribe', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Martin Rios', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Leandro Gajardo', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Pedro Hernandez', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Mario Munster', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Joaquin Rivera', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Enzo Oyarzun', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Matias Oyarzun', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Esteban Patinho', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Maximiliano Ramirez', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Franco Carrasco', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Gonzalo Dauvergne', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'James Zamorano', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Martin Tejeda', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Maximiliano Gonzales', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Ignacio Gonzales', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Williams Fernandez', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Renato Bustamante', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Biron Vera', '1234', 'Adulta Masculina'),
+  (uuid_generate_v4(), 'Christopher Moreno', '1234', 'Adulta Masculina'),
+  
+  -- Senior Masculina
+  (uuid_generate_v4(), 'Ernesto Flores', '1234', 'Senior Masculina'),
+  (uuid_generate_v4(), 'Pablo Morales', '1234', 'Senior Masculina'),
+  (uuid_generate_v4(), 'Leonel Torrejon', '1234', 'Senior Masculina'),
+  (uuid_generate_v4(), 'Bastian Moraga', '1234', 'Senior Masculina'),
+  (uuid_generate_v4(), 'Cristian Neira', '1234', 'Senior Masculina'),
+  (uuid_generate_v4(), 'Agustin Fuentes', '1234', 'Senior Masculina'),
+  (uuid_generate_v4(), 'Alejandro Sandoval', '1234', 'Senior Masculina'),
+  (uuid_generate_v4(), 'Daniel Rios', '1234', 'Senior Masculina'),
+  (uuid_generate_v4(), 'Eliezer Martinez', '1234', 'Senior Masculina'),
+  (uuid_generate_v4(), 'Felipe Reyes', '1234', 'Senior Masculina'),
+  (uuid_generate_v4(), 'Jose Luis Pulgar', '1234', 'Senior Masculina'),
+  (uuid_generate_v4(), 'Denin Cortes', '1234', 'Senior Masculina'),
+  (uuid_generate_v4(), 'Nelson Peña', '1234', 'Senior Masculina'),
+  (uuid_generate_v4(), 'Braulio Cabello', '1234', 'Senior Masculina'),
+
+  -- Femenina
+  (uuid_generate_v4(), 'Francesca Carrasco', '1234', 'Femenina'),
+  (uuid_generate_v4(), 'Carole Rios', '1234', 'Femenina'),
+  (uuid_generate_v4(), 'Vania Vera', '1234', 'Femenina'),
+  (uuid_generate_v4(), 'Camila Mansilla', '1234', 'Femenina'),
+  (uuid_generate_v4(), 'Nicole Ruz', '1234', 'Femenina'),
+  (uuid_generate_v4(), 'Romina Munzenmayer', '1234', 'Femenina'),
+  (uuid_generate_v4(), 'Constanza Guerrero', '1234', 'Femenina'),
+  (uuid_generate_v4(), 'Paulina Quintana', '1234', 'Femenina'),
+  (uuid_generate_v4(), 'Noemi Bañarez', '1234', 'Femenina'),
+  (uuid_generate_v4(), 'Elizabeth Fuentes', '1234', 'Femenina'),
+  (uuid_generate_v4(), 'Jesssica Saez', '1234', 'Femenina'),
+  (uuid_generate_v4(), 'Javiera Carrasco', '1234', 'Femenina')
 ON CONFLICT DO NOTHING;

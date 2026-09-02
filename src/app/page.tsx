@@ -8,6 +8,7 @@ import { Jugador } from '@/lib/types'
 export default function HomePage() {
   const router = useRouter()
   const [jugadores, setJugadores] = useState<Jugador[]>([])
+  const [selectedCategoria, setSelectedCategoria] = useState('')
   const [selectedId, setSelectedId] = useState('')
   const [pin, setPin] = useState('')
   const [loading, setLoading] = useState(false)
@@ -96,26 +97,54 @@ export default function HomePage() {
             <h2 className="text-lg font-bold text-white mb-6">Acceso de Jugador</h2>
 
             <form onSubmit={handleLogin} className="space-y-5">
-              {/* Player selector */}
+              {/* Categoria selector */}
               <div>
-                <label htmlFor="jugador-select" className="block text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
-                  Selecciona tu nombre
+                <label htmlFor="categoria-select" className="block text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                  Selecciona tu categoría
                 </label>
                 <select
-                  id="jugador-select"
-                  value={selectedId}
-                  onChange={(e) => setSelectedId(e.target.value)}
+                  id="categoria-select"
+                  value={selectedCategoria}
+                  onChange={(e) => {
+                    setSelectedCategoria(e.target.value)
+                    setSelectedId('')
+                  }}
                   className="w-full bg-[#0d0d0d] border border-gray-700 text-white rounded-xl px-4 py-3
                     focus:outline-none focus:border-cyan-400/60 focus:shadow-[0_0_15px_rgba(0,243,255,0.15)]
                     transition-all duration-200 appearance-none cursor-pointer"
                   required
                 >
-                  <option value="" disabled>Elige tu jugador...</option>
-                  {jugadores.map((j) => (
-                    <option key={j.id} value={j.id}>{j.nombre}</option>
-                  ))}
+                  <option value="" disabled>Elige tu categoría...</option>
+                  <option value="Adulta Masculina">Adulta Masculina</option>
+                  <option value="Senior Masculina">Senior Masculina</option>
+                  <option value="Femenina">Femenina</option>
                 </select>
               </div>
+
+              {/* Player selector */}
+              {selectedCategoria && (
+                <div>
+                  <label htmlFor="jugador-select" className="block text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                    Selecciona tu nombre
+                  </label>
+                  <select
+                    id="jugador-select"
+                    value={selectedId}
+                    onChange={(e) => setSelectedId(e.target.value)}
+                    className="w-full bg-[#0d0d0d] border border-gray-700 text-white rounded-xl px-4 py-3
+                      focus:outline-none focus:border-cyan-400/60 focus:shadow-[0_0_15px_rgba(0,243,255,0.15)]
+                      transition-all duration-200 appearance-none cursor-pointer"
+                    required
+                  >
+                    <option value="" disabled>Elige tu jugador...</option>
+                    {jugadores
+                      .filter(j => j.categoria === selectedCategoria)
+                      .map((j) => (
+                        <option key={j.id} value={j.id}>{j.nombre}</option>
+                      ))}
+                  </select>
+                </div>
+              )}
 
               {/* PIN */}
               <div>

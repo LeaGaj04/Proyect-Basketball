@@ -14,6 +14,7 @@ type Scores = Partial<Record<MetricKey, number>>
 interface Jugador {
   id: string
   nombre: string
+  categoria?: string
 }
 
 export default function EvaluarPage() {
@@ -154,8 +155,11 @@ export default function EvaluarPage() {
             {evaluado?.nombre.split(' ').slice(0, 2).map((n) => n[0]).join('').toUpperCase() ?? '??'}
           </div>
           <div>
-            <h1 className="text-2xl font-black text-white">{evaluado?.nombre ?? 'Cargando...'}</h1>
-            <p className="text-gray-500 text-sm">Evalúa su rendimiento del 1 al 10 en cada categoría</p>
+            <div className="flex items-center gap-3">
+              <h1 className="text-2xl font-black text-white">{evaluado?.nombre ?? 'Cargando...'}</h1>
+              {evaluado?.categoria && <span className="text-xs uppercase tracking-wider bg-gray-800 text-gray-400 px-2 py-1 rounded-md">{evaluado.categoria}</span>}
+            </div>
+            <p className="text-gray-500 text-sm mt-1">Evalúa su rendimiento del 1 al 10 en cada categoría</p>
           </div>
         </div>
 

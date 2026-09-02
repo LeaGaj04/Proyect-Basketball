@@ -9,6 +9,7 @@ import Link from 'next/link'
 interface Jugador {
   id: string
   nombre: string
+  categoria?: string
 }
 
 interface EvaluacionHecha {
@@ -32,7 +33,8 @@ export default function VotarPage() {
       fetch('/api/jugadores').then((r) => r.json()),
       fetch(`/api/evaluaciones?votante_id=${s.id}`).then((r) => r.json()),
     ]).then(([jugData, evalData]) => {
-      const todos: Jugador[] = (jugData.jugadores ?? []).filter((j: Jugador) => j.id !== s.id)
+      const todos: Jugador[] = (jugData.jugadores ?? [])
+        .filter((j: Jugador) => j.id !== s.id && (!s.categoria || j.categoria === s.categoria))
       setJugadores(todos)
       const done = new Set<string>((evalData.evaluaciones ?? []).map((e: EvaluacionHecha) => e.evaluado_id))
       setEvaluadas(done)
@@ -135,7 +137,10 @@ export default function VotarPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-white font-semibold text-sm truncate">{j.nombre}</p>
-                    <p className="text-xs text-gray-600">Sin evaluar</p>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      {j.categoria && <span className="text-[10px] uppercase tracking-wider bg-gray-800 text-gray-400 px-1.5 py-0.5 rounded-md">{j.categoria}</span>}
+                      <p className="text-xs text-gray-600">Sin evaluar</p>
+                    </div>
                   </div>
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </Link>
@@ -161,7 +166,10 @@ export default function VotarPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-white font-semibold text-sm truncate">{j.nombre}</p>
-                    <p className="text-xs text-emerald-500">Evaluado</p>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      {j.categoria && <span className="text-[10px] uppercase tracking-wider bg-emerald-900/30 text-emerald-500/70 px-1.5 py-0.5 rounded-md">{j.categoria}</span>}
+                      <p className="text-xs text-emerald-500">Evaluado</p>
+                    </div>
                   </div>
                 </div>
               ))}

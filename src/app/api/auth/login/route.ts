@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
     const supabase = createServerClient()
     const { data, error } = await supabase
       .from('jugadores')
-      .select('id, nombre, pin')
+      .select('id, nombre, pin, categoria')
       .eq('id', jugador_id)
       .single()
 
@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'PIN incorrecto' }, { status: 401 })
     }
 
-    return NextResponse.json({ jugador: { id: data.id, nombre: data.nombre } })
+    return NextResponse.json({ jugador: { id: data.id, nombre: data.nombre, categoria: data.categoria } })
   } catch (err) {
     console.error('[API /auth/login]', err)
     return NextResponse.json({ error: 'Error del servidor' }, { status: 500 })

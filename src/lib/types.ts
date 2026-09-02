@@ -2,6 +2,7 @@ export interface Jugador {
   id: string
   nombre: string
   pin: string
+  categoria: string
 }
 
 export interface Evaluacion {

@@ -6,7 +6,7 @@ export async function GET() {
     const supabase = createServerClient()
     const { data, error } = await supabase
       .from('jugadores')
-      .select('id, nombre')
+      .select('id, nombre, categoria')
       .order('nombre', { ascending: true })
 
     if (error) throw error

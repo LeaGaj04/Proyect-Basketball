@@ -5,6 +5,7 @@
 export interface JugadorSession {
   id: string
   nombre: string
+  categoria?: string
 }
 
 const SESSION_KEY = 'sports_survey_session'
