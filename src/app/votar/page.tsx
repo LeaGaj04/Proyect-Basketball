@@ -71,7 +71,7 @@ export default function VotarPage() {
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="10" /><path strokeLinecap="round" d="M12 2a10 10 0 100 20A10 10 0 0012 2z" /></svg>
             </div>
             <div>
-              <p className="text-xs text-gray-500 uppercase tracking-widest">Sports Survey</p>
+              <p className="text-xs text-gray-500 uppercase tracking-widest">Club Deportivo Project</p>
               <p className="text-sm font-bold text-white">{session?.nombre}</p>
             </div>
           </div>

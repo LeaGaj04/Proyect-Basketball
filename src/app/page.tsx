@@ -82,13 +82,13 @@ export default function HomePage() {
       <div className="w-full max-w-md relative z-10">
         {/* Logo / Brand */}
         <div className="text-center mb-10">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-cyan-400/10 border border-cyan-400/30 shadow-[0_0_15px_rgba(0,243,255,0.1)] mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3" /></svg>
+          <div className="inline-flex items-center justify-center w-24 h-24 mb-4">
+            <img src="/logo.png" alt="Logo" className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(0,100,255,0.3)]" />
           </div>
           <h1 className="text-3xl font-black text-white tracking-tight glow-text-cyan">
-            Sports Survey
+            Club Deportivo Project
           </h1>
-          <p className="text-gray-500 mt-2 text-sm">Evaluación de equipo · Temporada 2024</p>
+          <p className="text-gray-500 mt-2 text-sm">Evaluación de equipo · Temporada 2026</p>
         </div>
 
         {/* Login Card */}
@@ -254,7 +254,7 @@ export default function HomePage() {
         )}
 
         <p className="text-center text-gray-700 text-xs mt-6">
-          Sports Survey v1.0 · Todos los derechos reservados
+          Club Deportivo Project v1.0 · Todos los derechos reservados
         </p>
       </div>
     </main>

@@ -16,12 +16,12 @@ export const viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Sports Survey — Evaluación de Equipo',
+  title: 'Club Deportivo Project - Evaluación',
   description:
     'Sistema de evaluación entre pares para equipos deportivos. Califica las habilidades de tus compañeros en 6 métricas clave.',
   keywords: ['encuesta deportiva', 'evaluación equipo', 'fútbol', 'análisis de rendimiento'],
   openGraph: {
-    title: 'Sports Survey',
+    title: 'Club Deportivo Project',
     description: 'Evaluación deportiva entre pares',
     type: 'website',
   },

@@ -139,7 +139,7 @@ export default function EvaluarPage() {
       <header className="sticky top-0 z-40 bg-black/80 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-2xl mx-auto px-4 py-4 flex items-center gap-3">
           <Link href="/votar" className="text-gray-500 hover:text-white transition-colors text-sm">
-          <span className="text-gray-600 group-hover:text-cyan-400 transition-colors">
+            <span className="text-gray-600 group-hover:text-cyan-400 transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
             </span>
           </Link>
@@ -170,9 +170,8 @@ export default function EvaluarPage() {
               <div
                 key={m}
                 title={METRIC_LABELS[m]}
-                className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
-                  scores[m] !== undefined ? 'bg-cyan-400 shadow-[0_0_6px_rgba(0,243,255,0.6)]' : 'bg-gray-800'
-                }`}
+                className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${scores[m] !== undefined ? 'bg-cyan-400 shadow-[0_0_6px_rgba(0,243,255,0.6)]' : 'bg-gray-800'
+                  }`}
               />
             ))}
           </div>
